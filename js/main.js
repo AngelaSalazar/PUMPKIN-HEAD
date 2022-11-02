@@ -10,8 +10,8 @@ function setup() {
 }
 
 function draw() {
+  backgroundSound.play()
   game.draw();
-
 }
 
 

@@ -25,17 +25,17 @@ class Game {
     this.drawGrid()
     this.player.draw()
     this.wall.draw()
-
     this.Win.drawWin()
   }
 
-   drawGrid() {
-    for (let i=0; i<70; i++){
-        line(i*SQUARE_SIDE, 0, i*SQUARE_SIDE, HEIGHT)
-        line(0, i*SQUARE_SIDE, WIDTH, i*SQUARE_SIDE)
-      }
 
-  } 
+  drawGrid() {
+    for (let i=0; i<70; i++){
+      line(i*SQUARE_SIDE, 0, i*SQUARE_SIDE, HEIGHT)
+      line(0, i*SQUARE_SIDE, WIDTH, i*SQUARE_SIDE)
+    }
+  }
+
 }
 
 class Win{
@@ -49,12 +49,12 @@ class Win{
   }
 
   collision() {
-    if (dist(this.col, this.row, game.player.col, game.player.row) < 50) {
+    if (dist(this.col, this.row, game.player.col, game.player.row) < 50){ 
       document.querySelector("h2").classList.remove("hidden")
-      console.log("hi")
+      noLoop()
+      winningSound.play()
     }
   }
-
 }
 
 
@@ -142,7 +142,7 @@ function startTimer() {
   let timeArray = presentTime.split(/[:]+/);
   let min = timeArray[0];
   let sec = Second((timeArray[1] - 1));
-
+  console.log(sec)
 
   if(sec==59){
     min=min-1
@@ -152,14 +152,22 @@ function startTimer() {
     return
   }
 
-/*   if ( (min === "0") && (sec === "00")){
-    loose()
-  } */
+  if (min === "0" && sec === "00"){
+    noLoop()
+    loosingSound.play()
+
+  }
 
   document.getElementById('timer').innerHTML =
-    min + ":" + sec;
-  setTimeout(startTimer, 1000);
-  
+  min + ":" + sec;
+  let time = setTimeout(startTimer, 1000);
+ 
+  if (dist(game.Win.col, game.Win.row, game.player.col, game.player.row) < 50){ 
+    clearTimeout(time)
+  }
+
+
+
 }
 
 function Second(sec) {
@@ -175,7 +183,4 @@ function Second(sec) {
 document.getElementById("timer").innerHTML = 02+":"+00
 startTimer()
 
-/* function loose(){
-  return document.getElementByClass("time").innerHTML = "YOU DON'T GET CANDY TODAY :)";
-}   */
 

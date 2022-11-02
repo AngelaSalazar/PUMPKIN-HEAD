@@ -9,7 +9,8 @@ body {
 h1 {
     font-weight: 100;
     font-size: 300%;
-    color: #FFBA08
+    color: #FFBA08;
+    padding-top: 1%;
 }
   
 #canvas {
@@ -18,4 +19,18 @@ h1 {
 
 .hidden{
     display: none;
+}
+
+.center{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time{
+    color: #FFBA08;
+    padding-bottom: 2%;
+    font-size: 200%;
 }

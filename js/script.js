@@ -3,8 +3,6 @@ class Game {
     constructor() {
       this.player = new Player()
       
-/*       this.badGuy = new badGuy()
-      this.Candy = new Candy()  */
       this.wall = new wall();
       this.Win = new Win()
   }
@@ -17,8 +15,6 @@ class Game {
       this.player.imageDown = loadImage('../Images/FrontSide.png')
       this.player.imageLeft = loadImage('../Images/LeftSide.png')
       this.player.imageRight = loadImage('../Images/RightSide.png')
-/*       this.Candy.image = loadImage('../Images/Candy.png')
-      this.badGuy.image = loadImage('../Images/BadGuy.png')  */
       this.Win.image = loadImage("../Images/Candy.png")
   }
 
@@ -30,9 +26,6 @@ class Game {
     this.player.draw()
     this.wall.draw()
 
-
-/*     this.badGuy.drawBadGuy()
-    this.Candy.drawCandy()  */
     this.Win.drawWin()
   }
 
@@ -75,6 +68,9 @@ class Player{
         this.imageRight
         this.image
         this.moveRightPossible = true
+        this.moveLefttPossible = true
+        this.moveDowntPossible = true
+        this.moveUptPossible = true
         this.wall = new wall() 
     }
 
@@ -84,15 +80,13 @@ class Player{
 
     moveRight(){
       if (this.moveRightPossible){
-        if (this.col <= 850){
+        if (this.col <= 900){
           this.col += 50
         }
 
         console.log(this.col)
         this.image=this.imageRight
         this.checkPossibleMoves()
-/*         game.badGuy.collision()
-        game.Candy.collision() */
       }
     }
 
@@ -104,8 +98,6 @@ class Player{
   
         this.image=this.imageLeft
         this.checkPossibleMoves()
-/*         game.badGuy.collision()
-        game.Candy.collision() */
       }
     }
 
@@ -117,8 +109,6 @@ class Player{
   
         this.image=this.imageUp
         this.checkPossibleMoves()
-/*         game.badGuy.collision()
-        game.Candy.collision() */
       }
     }
 
@@ -130,8 +120,6 @@ class Player{
   
         this.image=this.imageDown
         this.checkPossibleMoves()
-/*         game.badGuy.collision()
-        game.Candy.collision() */
         game.Win.collision()
      }
     }
@@ -149,49 +137,45 @@ class Player{
 
 
 
-/* class badGuy{
-  constructor(){
-    this.col = 0
-    this.row = 0
-    this.setRandomPosition()
+function startTimer() {
+  let presentTime = document.getElementById('timer').innerHTML;
+  let timeArray = presentTime.split(/[:]+/);
+  let min = timeArray[0];
+  let sec = Second((timeArray[1] - 1));
+
+
+  if(sec==59){
+    min=min-1
   }
 
-  setRandomPosition() {
-      this.col = (Math.floor(Math.random() * 20)) * 50
-      this.row = (Math.floor(Math.random() * 60)) * 50
- }
-
-  drawBadGuy() {
-      image(this.image, this.col, this.row, 50, 50)
+  if(min<0){
+    return
   }
 
-  collision() {
-    if (dist(this.col, this.row, game.player.col, game.player.row) < 50) {
-    this.setRandomPosition()
-    }
-  }
-} */
+/*   if ( (min === "0") && (sec === "00")){
+    loose()
+  } */
 
-/* class Candy{
-  constructor(){
-    this.col = 100
-    this.row = 2900
-    this.setRandomPosition()
-  }
+  document.getElementById('timer').innerHTML =
+    min + ":" + sec;
+  setTimeout(startTimer, 1000);
+  
+}
 
-  setRandomPosition() {
-      this.col = Math.floor(Math.random() * 10) * 100
-      this.row = Math.floor(Math.random() * 10) * 100
- }
+function Second(sec) {
+  if (sec < 10 && sec >= 0) {
+    sec = "0" + sec
+  }; 
+  if (sec < 0) {
+    sec = "59"
+  };
+  return sec;
+}
 
-  drawCandy() {
-      image(this.image, this.col, this.row, 50, 50)
-  }
+document.getElementById("timer").innerHTML = 02+":"+00
+startTimer()
 
-  collision() {
-    if (dist(this.col, this.row, game.player.col, game.player.row) < 50) {
-    this.setRandomPosition()
-    }
-  }
+/* function loose(){
+  return document.getElementByClass("time").innerHTML = "YOU DON'T GET CANDY TODAY :)";
+}   */
 
-} */

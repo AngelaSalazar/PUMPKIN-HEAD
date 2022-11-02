@@ -180,7 +180,7 @@ function Second(sec) {
   return sec;
 }
 
-document.getElementById("timer").innerHTML = 02+":"+00
+document.getElementById("timer").innerHTML = 01+":"+30
 startTimer()
 
 

@@ -8,14 +8,14 @@ class Game {
   }
 
   preload(){
-      this.player.image = loadImage('../Images/FrontSide.png')
-      this.wall.image = loadImage('../Images/wall2.PNG')
+      this.player.image = loadImage('/Images/FrontSide.png')
+      this.wall.image = loadImage('/Images/wall2.PNG')
       
-      this.player.imageUp = loadImage('../Images/BackSide.png')
-      this.player.imageDown = loadImage('../Images/FrontSide.png')
-      this.player.imageLeft = loadImage('../Images/LeftSide.png')
-      this.player.imageRight = loadImage('../Images/RightSide.png')
-      this.Win.image = loadImage("../Images/Candy.png")
+      this.player.imageUp = loadImage('/Images/BackSide.png')
+      this.player.imageDown = loadImage('/Images/FrontSide.png')
+      this.player.imageLeft = loadImage('/Images/LeftSide.png')
+      this.player.imageRight = loadImage('/Images/RightSide.png')
+      this.Win.image = loadImage("/Images/Candy.png")
   }
 
 

@@ -35,7 +35,6 @@ class Game {
       line(0, i*SQUARE_SIDE, WIDTH, i*SQUARE_SIDE)
     }
   }
-
 }
 
 class Win{
@@ -72,6 +71,7 @@ class Player{
         this.moveDowntPossible = true
         this.moveUptPossible = true
         this.wall = new wall() 
+        this.checkPossibleMoves()
     }
 
     draw() {
@@ -128,7 +128,7 @@ class Player{
       this.moveLeftPossible = this.wall.index[this.row/50][this.col/50 -1] === 'path';
       this.moveRightPossible = this.wall.index[this.row/50][this.col/50 +1] === 'path';
       this.moveDownPossible = this.wall.index[this.row/50 +1][this.col/50] === 'path';
-        this.moveUpPossible = (this.wall.index[this.row/50 -1][this.col/50] === 'path');
+      this.moveUpPossible = (this.wall.index[this.row/50 -1][this.col/50] === 'path');
       
     }
 

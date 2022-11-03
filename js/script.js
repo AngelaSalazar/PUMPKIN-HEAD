@@ -50,9 +50,7 @@ class Win{
 
   collision() {
     if (dist(this.col, this.row, game.player.col, game.player.row) < 50){ 
-      document.querySelector("h2").classList.remove("hidden")
       noLoop()
-      winningSound.play()
     }
   }
 }
@@ -154,7 +152,7 @@ function startTimer() {
 
   if (min === "0" && sec === "00"){
     noLoop()
-    loosingSound.play()
+    location.href = 'loosing.html';
 
   }
 
@@ -164,10 +162,10 @@ function startTimer() {
  
   if (dist(game.Win.col, game.Win.row, game.player.col, game.player.row) < 50){ 
     clearTimeout(time)
-  }
+    location.href = 'winning.html';
 
-
-
+    
+    }
 }
 
 function Second(sec) {
@@ -180,7 +178,7 @@ function Second(sec) {
   return sec;
 }
 
-document.getElementById("timer").innerHTML = 01+":"+30
+document.getElementById("timer").innerHTML = 01+":"+50
 startTimer()
 
 

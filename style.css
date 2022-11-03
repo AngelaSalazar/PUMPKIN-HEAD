@@ -17,10 +17,6 @@ h1 {
     background: #2f3e46;
 }
 
-.hidden{
-    display: none;
-}
-
 .center{
     flex: 1;
     display: flex;

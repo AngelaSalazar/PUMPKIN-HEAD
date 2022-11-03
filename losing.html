@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUMPKIN HEAD</title>
     <link rel="stylesheet" href="styleIntro.css">
 
-    <audio id="winningSound" src="./Images/ghostly-humming-63204.mp3" preload="auto"></audio>
+    <title>PUMPKIN HEAD</title>
+    <audio id="losingSound" src="./Images/demonic-woman-scream-6333.mp3" preload="auto"></audio>
 </head>
-<body class="winning">
-    <h1>you win!</h1>
-    <h3 id="gameDescrip" class="num2">You got the candy and were really happy about it, even though you were invading someone's property... but well, no one caught your greedy presence so congrats!</h3>
+<body class="screamer">
+    <h1 class="screamer-h1">you lose :)</h1>
+    <h3 id="gameDescrip" class="num2">You took too long and the the badGuy™ found you fooling around in his garden... rumors say he killed you... friends say he called the police and your mom got really upset.</h3>
+
     <h3 class="msg">press spacebar to play again</h3>
 </body>
 <script>
-    winningSound.play()
+    losingSound.play()
     document.addEventListener("keyup", event => {
          if(event.keyCode==32){ 
             window.open ("./game.html", "_self") 
         }
-    })
+      })
 </script>
 </html>

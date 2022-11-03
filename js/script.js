@@ -60,6 +60,8 @@ class Player{
     constructor(){
         this.col = 500
         this.row = 50
+/*         this.col = 50
+        this.row = 2800 */
         this.imageUp
         this.imageDown
         this.imageLeft
@@ -150,7 +152,7 @@ function startTimer() {
 
   if (min === "0" && sec === "00"){
     noLoop()
-    location.href = 'loosing.html';
+    setTimeout(function (){location.href = 'losing.html'}, 3000)
 
   }
 
@@ -160,9 +162,9 @@ function startTimer() {
  
   if (dist(game.Win.col, game.Win.row, game.player.col, game.player.row) < 50){ 
     clearTimeout(time)
-    location.href = 'winning.html';
 
-    
+    setTimeout(function (){location.href = 'winning.html'}, 2000)
+
     }
 }
 
@@ -176,7 +178,7 @@ function Second(sec) {
   return sec;
 }
 
-document.getElementById("timer").innerHTML = 01+":"+50
+document.getElementById("timer").innerHTML = 01+":"+31
 startTimer()
 
 

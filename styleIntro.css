@@ -6,7 +6,37 @@ body {
     align-items: center;
     background-image: url('Images/Background1.gif');
 }
+
+.screamer {
+    background-image:url('Images/BadGuy.png') ;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
   
+.winning{
+    background-image:url("Images/Candy.png");
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+.screamer-msg{
+    font-weight: 500;
+    padding-top: 30%;
+}
+
+.msg{
+    font-weight: 500;
+}
+
+.screamer-h1{
+    color:white;
+}
+
+.num2{
+    font-weight: 500;
+}
+
 h1 {
     font-size: 600%;
     color: #FFBA08;

@@ -82,7 +82,6 @@ class Player{
           this.col += 50
         }
 
-        console.log(this.col)
         this.image=this.imageRight
         this.checkPossibleMoves()
       }
@@ -140,7 +139,6 @@ function startTimer() {
   let timeArray = presentTime.split(/[:]+/);
   let min = timeArray[0];
   let sec = Second((timeArray[1] - 1));
-  console.log(sec)
 
   if(sec==59){
     min=min-1
